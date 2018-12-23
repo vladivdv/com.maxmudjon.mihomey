@@ -174,7 +174,7 @@ class MiAirPurifierS2 extends Homey.Device {
 
   registerPurifierOnAction(name, action) {
     var that = this;
-    action.purifierOn.registerRunListener(async (args, state) => {
+    action.action.registerRunListener(async (args, state) => {
       that.device.call('set_power', ['on'])
         .then(() => that.log("Set 'set_power': ", args))
         .catch(error => that.log("Set 'set_power' error: ", error));
